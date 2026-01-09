@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <limits.h>
+#include "../main.h"
 
 static char	*ft_trim_local(const char *nptr)
 {
@@ -29,13 +30,27 @@ static int	is_negtive(char val)
 	return (1);
 }
 
+static int is_contain_wrong_char(const char *nptr)
+{
+	int	i;
+
+	i = 0;
+	while (nptr[i])
+	{
+		if ((nptr[i] < '0' || nptr[i] > '9' ) && nptr[i] != '+' && nptr[i] != '-')
+			return (1);
+		nptr++;
+	}
+	return (0);
+}
+
 int	ft_atoi(const char *nptr)
 {
 	long int	number;
 	int			index;
 	short int	sign;
 
-	if (nptr == NULL)
+	if (nptr == NULL || is_contain_wrong_char(nptr))
 		return (0);
 	nptr = ft_trim_local(nptr);
 	index = 0;
