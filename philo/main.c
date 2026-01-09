@@ -33,6 +33,7 @@ static int	start_threads(t_program *prog_dt)
 	i = 0;
 	while (i < prog_dt->num_of_philos)
 	{
+		prog_dt->philos[i].last_meal_time = start_time;
 		if (pthread_create(&prog_dt->philos[i].thread, NULL,
 				philosopher_routine, &prog_dt->philos[i]) != 0)
 		{

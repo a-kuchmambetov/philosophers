@@ -76,13 +76,10 @@ void	*philosopher_routine(void *arg)
 	const int	time_to_think = calc_think_time((t_philo *)arg);
 
 	philo = (t_philo *)arg;
-	pthread_mutex_lock(&philo->prog_dt->meal_lock);
-	philo->last_meal_time = get_cur_time();
-	pthread_mutex_unlock(&philo->prog_dt->meal_lock);
 	if (philo->prog_dt->num_of_philos == 1)
 		return (handle_single_philo(&philo->prog_dt->philos[0]), NULL);
 	if (philo->id % 2 == 0)
-		ft_sleep(philo->prog_dt->time_to_eat, philo);
+		ft_sleep(philo->prog_dt->time_to_eat / 5, philo);
 	while (!is_dead(philo->prog_dt) && !is_full(philo))
 	{
 		start_eating(philo);

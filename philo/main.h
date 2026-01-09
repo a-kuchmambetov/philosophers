@@ -61,7 +61,7 @@ void	ft_sleep(size_t milliseconds, t_philo *philo);
 int64_t	get_cur_time(void);
 
 // Initialization
-int ft_atoi(const char *nptr);
+int		ft_atoi(const char *nptr);
 void	init_program(t_program *prog_dt, int argc, char **argv, int *errno);
 void	destroy_mutexes(t_program *prog_dt, int initialized_count);
 

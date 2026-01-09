@@ -30,14 +30,15 @@ static int	is_negtive(char val)
 	return (1);
 }
 
-static int is_contain_wrong_char(const char *nptr)
+static int	is_contain_wrong_char(const char *nptr)
 {
 	int	i;
 
 	i = 0;
 	while (nptr[i])
 	{
-		if ((nptr[i] < '0' || nptr[i] > '9' ) && nptr[i] != '+' && nptr[i] != '-')
+		if ((nptr[i] < '0' || nptr[i] > '9' )
+			&& nptr[i] != '+' && nptr[i] != '-')
 			return (1);
 		nptr++;
 	}
